@@ -20,6 +20,7 @@
         <table class="table table-hover mb-0" id="leadsTable">
             <thead class="table-light">
                 <tr>
+                    <th>Date Added</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Budget</th>
@@ -30,6 +31,8 @@
             <tbody>
                 {% for lead in leads %}
                 <tr>
+                    <!-- NEW DATA CELL formatting the timestamp nicely -->
+                    <td class="text-muted small">{{ lead.created_at.strftime('%b %d, %Y') }}</td>
                     <td>{{ lead.name }}</td>
                     <td>{{ lead.email }}</td>
                     <td>{{ lead.budget }}</td>
@@ -47,7 +50,7 @@
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="5" class="text-center py-4">No leads found.</td>
+                    <td colspan="6" class="text-center py-4">No leads found.</td>
                 </tr>
                 {% endfor %}
             </tbody>
